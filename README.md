@@ -2,7 +2,7 @@
 
 1. **A practical guide for building an end-to-end Retrieval Augmented Generation (RAG) system.**
 
-2. **Ragas (RAG Assessment) Evaluation to evaluate RAG performance using 9 metrics.**
+2. **Ragas (RAG Assessment) to evaluate RAG performance using 9 metrics.**
 
 ---
 
@@ -31,22 +31,22 @@ Uses a language model to generate a final answer by grounding it in the retrieve
 # Ragas Metrics
 
 ## LLM Context Precision With Reference
-`LLMContextPrecisionWithReference` measures the proportion of retrieved context chunks that directly support the reference answer by using an LLM to compare each chunk to the answer.
+`LLMContextPrecisionWithReference` measures the proportion of relevant chunks in the retrieved_contexts by using an LLM.
 
 ## Non LLM Context Precision With Reference
-`NonLLMContextPrecisionWithReference` measures the fraction of retrieved context chunks that match any reference context using a non-LLM similarity measure.
+`NonLLMContextPrecisionWithReference` measures the proportion of relevant chunks in the retrieved_contexts by using a non-LLM distance measure.
 
 ## LLM Context Recall
-`LLMContextRecall` measures how many key facts or claims in the reference are covered by the retrieved contexts by using an LLM to check each fact.
+`LLMContextRecall` measures how many of the relevant documents (or pieces of information) were successfully retrieved by using an LLM.
 
 ## Non LLM Context Recall
-`NonLLMContextRecall` measures the fraction of reference contexts that were successfully retrieved by comparing entities or text spans with a non-LLM similarity measure.
+`NonLLMContextRecall` how many of the relevant documents (or pieces of information) were successfully retrieved by using a non-LLM distance measure.
 
 ## Context Entity Recall
-`ContextEntityRecall` computes the fraction of named entities in the reference that also appear in the retrieved contexts.
+`ContextEntityRecall` gives the measure of recall of the retrieved context, based on the number of entities present in both reference and retrieved_contexts relative to the number of entities present in the reference alone.
 
 ## Response Relevancy
-`ResponseRelevancy` measures how directly the generated response addresses the user input by using an LLM or embeddings to score relevance.
+`ResponseRelevancy` measures how relevant a response is to the user input by using an LLM or embeddings to score relevance.
 
 ## Faithfulness
 `Faithfulness` measures the factual consistency of the response by calculating the fraction of claims in the response that are supported by the retrieved contexts.
